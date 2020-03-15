@@ -69,6 +69,44 @@ name the files that you wish to ignore]
 
 this helps us to create a set of files that we do not want git to add or even show as untracked.
 do git diff also.
+
+9. GIT DIFF
+[git diff] is a command that can show exact lines added and removed for the files that are not staged
+[git diff --staged] displays the changes for staged files
+git diff --staged = git diff --cached
+
+10. GIT COMMIT
+[git commit -m "message"] is how you commit. 
+every time you commit, you record a snapshot of your project
+it displays your branch, SHA1, how many files were changed, statistics on lines added and removed.
+[git commit -a -m "message"] is how you commit without adding.
+
+11. REMOVING FILES
+[git rm --cached filename] is how you remove a file from staging area,but it remains in working area.
+[git rm filename.txt] is how you remove file that you have not modified
+[git rm -f filename] is how you remove modified files.
+
+12. GIT LOG
+[git log] tells you about the commit history
+[git log --stat] gives abbreviated stats for each commit
+[git log --graph] gives you an ASCII graph showing your graph and merge history
+--pretty changes the log output to formats other than the default
+--oneline will print the commit history in a single line
+
+13. UNDOING
+to undo commit [git commit --amend]
+to undo staging [git reset HEAD filename]
+to undo modification [git checkout -- filename]
+
+14. REMOTE
+i
+
+
+
+
+
+
+
 pg 128, 146,171-180,189, 193, 203,226-235,245, 254-260 
 
 
