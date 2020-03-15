@@ -1,1 +1,78 @@
-I hope it works this time
+About Version Control System
+version control system records the changes made to file or multiple files over time, so that they can 
+be recalled later on.
+
+TYPES
+1. LOCAL VCS
+To copy files in another directory, and keep the patch sets (differenes between files) in a disk, so 
+that files can be re-created when required.
+
+2. CENTRALIZED VCS
+A single server contains all the versioned files, so that multiple users can access and collaboration 
+can take place. the problem is that if the server goes down, then no one will be able to access any
+file.
+
+3. DISTRIBUTED VCS
+Users have access to the complete history of files, including all commits, as they can simply mirror the repository. since there can be several remote repositories of the same file, various people can contribute on the same project in their own way.
+
+ABOUT GIT
+Git is very different from other version control systems. 
+it takes a picture of how the project looks like, whenever we commit, and creates a reference to that snapshot, instead of storing the changes made to files.
+
+THE THREE STATES
+1. WORKING DIRECTORY: it is where new files are checked out. we can modify files here.
+2. STAGING AREA: once we add files in git, they go to the staging area and are known as staged files.
+3. REPOSITORY: once files have been committed, they reach the local repository.
+
+TRACKED FILES: that git knows about
+UNTRACKED FILES: any file that has not been staged or committed, that git does not know about. 
+when you clone a repo, all files will be tracked and modified. however, when you start working on them, they will be identified as modified, staged etc.
+
+COMMANDS:
+1. IDENTITY: configure yourself once you install git
+[git config --global user.name "Tanishka Vaswani"]
+[git config --global user.email "tanishkavaswani1@gmail.com"]
+
+2. to check all your settings
+[git config --list]
+
+3. to view all your settings and where they are coming from
+[git config --list --show-origin]
+
+4. to get help 
+ [git help -a]
+
+5. obtaining git repository
+there are two ways of doing it
+[git init]
+through this, a git repository will be created.
+
+cloning a git repository
+git clone: to get a copy of the existing git repository.
+[git clone <url> ]
+through this command, a new directory will be created, pull down all the data,including the latest version of working copy. you can give a name of your choice to the directory
+
+6. GIT STATUS
+[git status] is a command which tells determines that which file is in which state. 
+it tells you about your current working branch
+
+[git status -s] is a command to view status in short and concise manner.
+
+7. GIT ADD
+a new file is tracked through [git add]. it is a multipurpose command, as it is used to track files, stage files and mark merge-conflicts as resolved.
+
+IMP: Git stages a file exactly as it is when git add command is run.if you modify a file after your run git add, you have to run git add again to stage the latest version of the file.
+
+8. IGNORING FILES
+[create a file through vi .gitignore
+name the files that you wish to ignore]
+
+this helps us to create a set of files that we do not want git to add or even show as untracked.
+do git diff also.
+pg 128, 146,171-180,189, 193, 203,226-235,245, 254-260 
+
+
+
+
+
+
