@@ -51,6 +51,7 @@ cloning a git repository
 git clone: to get a copy of the existing git repository.
 [git clone <url> ]
 through this command, a new directory will be created, pull down all the data,including the latest version of working copy. you can give a name of your choice to the directory
+this command implicitly adds origin remote for you.
 
 6. GIT STATUS
 [git status] is a command which tells determines that which file is in which state. 
@@ -60,6 +61,8 @@ it tells you about your current working branch
 
 7. GIT ADD
 a new file is tracked through [git add]. it is a multipurpose command, as it is used to track files, stage files and mark merge-conflicts as resolved.
+[git add -i] is for interactive staging wherein partitioning will take place.
+[git add --patch] for partially staging files
 
 IMP: Git stages a file exactly as it is when git add command is run.if you modify a file after your run git add, you have to run git add again to stage the latest version of the file.
 
@@ -81,6 +84,8 @@ every time you commit, you record a snapshot of your project
 it displays your branch, SHA1, how many files were changed, statistics on lines added and removed.
 [git commit -a -m "message"] is how you commit without adding.
 
+IMP AND EXTRA: when you create the commit by running git commit, git checksums each subdirectory and stores them as a tree object in the git repository. git then creates a commit object that has the metadata and a pointer to the root project tree so it can re-create that snapshot when needed. your git repository now contains five objects: three blobs(version of your file), one tree that lists the contents of the directory and specifies which file names are stored as which blobs, and one commit with the pointer to that root tree and all the commit metadata. if you make some changes and commit again, the next commit stores a pointer to the commit that came immediately before it.
+
 11. REMOVING FILES
 [git rm --cached filename] is how you remove a file from staging area,but it remains in working area.
 [git rm filename.txt] is how you remove file that you have not modified
@@ -92,6 +97,8 @@ it displays your branch, SHA1, how many files were changed, statistics on lines 
 [git log --graph] gives you an ASCII graph showing your graph and merge history
 --pretty changes the log output to formats other than the default
 --oneline will print the commit history in a single line
+[git log --decorate] to show your current working branch
+[git log --oneline --decorate --graph --all] to print the history of commits, showing where your branch pointers are and how your history has diverged.
 
 13. UNDOING
 to undo commit [git commit --amend]
@@ -99,14 +106,58 @@ to undo staging [git reset HEAD filename]
 to undo modification [git checkout -- filename]
 
 14. REMOTE
-i
+remote repositories are versions of your project that are hosted on the internet or on another network. remote here implies somewhere else, thus , it can be on the same host as you are. 
+origin is the default name that git gives to the server that you cloned from.
+
+[git remote add origin <url>] is how we add a new remote git repository.
+
+15. BRANCHING
+HEAD is a pointer that points to the local branch that you are currently working on
+you should always have a clean working copy, by committing all chnages before switching branches.
+[fast-forward merge] is when there is no divergent work to merge together.
+
+[git branch <branchname>] is how to create a new branch
+[git checkout branchname] to switch to newbranch
+[git checkout -b <newbranchname>] to create and switch to a new branch automatically.
+[git branch -d <branchname>] to delete a branch
+[git branch] lists all the branches
+[git branch -v] to see last commits on all branches
+[git branch --merged] to see branches that are merged in current branch
+[git branch --no-merged] to see branches that are not merged in current branch
+
+16. MERGING
+[git merge branchname] is how to merge a branch into the current branch.
+[git mergetool] is to resolve merge conflicts through a visual way.
+
+17. PUSHING
+[git push -u origin master] to push the data to remote
+
+18. PULLING
+[git pull <url>] will fetch data from server and merge in remote branch
+
+19. FETCH
+[git fetch] will only fetch the data from server
+IMP: git fetch + get merge = git pull
+
+20. DELETING REMOTE BRANCHES
+[git push origin --delete branchname]
+
+21. STASHING
+[git stash] allows you to stash your work while you don't commit it,so that you can switch branches
+[git stash list] to list all stashes
+[git stash apply] to apply the latest stash
+[git stash apply stash@{no.}] to apply a particular stash
+[git stash drop] to drop latest stash
+[git stash drop stash@{no.}] to drop a particular stash
+[git stash pop] to apply and drop stash simultaneously
+[git stash --patch] to stash some patches
 
 
 
 
 
 
-
+pg 73-74 doubt, public project over emailpg148, upstream, git stash apply --index
 pg 128, 146,171-180,189, 193, 203,226-235,245, 254-260 
 
 
