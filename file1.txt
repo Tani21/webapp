@@ -151,12 +151,13 @@ IMP: git fetch + get merge = git pull
 [git stash drop stash@{no.}] to drop a particular stash
 [git stash pop] to apply and drop stash simultaneously
 [git stash --patch] to stash some patches
+[git stash branch <branchname>] 
 
 
 
 
 
-
+doubt: pg 234 branch from stash
 pg 73-74 doubt, public project over emailpg148, upstream, git stash apply --index
 pg 128, 146,171-180,189, 193, 203,226-235,245, 254-260 
 
